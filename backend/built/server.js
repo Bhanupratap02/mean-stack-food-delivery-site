@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /** @format */
 var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
+var path_1 = __importDefault(require("path"));
 var express_1 = __importDefault(require("express"));
 var cors_1 = __importDefault(require("cors"));
 var food_1 = __importDefault(require("./router/food"));
@@ -25,6 +26,9 @@ app.get("/", function (req, res) {
 app.use("/api/foods", food_1.default);
 app.use("/api/users", user_1.default);
 app.use("/api/orders", order_1.default);
+app.get("*", function (req, res) {
+    res.sendFile(path_1.default.join(__dirname, "public", "index.html"));
+});
 var port = 8000;
 app.listen(port, function () {
     console.log("Server Running on port ".concat(port));

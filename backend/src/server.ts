@@ -1,6 +1,8 @@
 /** @format */
 import dotenv from "dotenv";
 dotenv.config();
+import path from "path";
+
 import express from "express";
 import cors from "cors";
 import foodRouter from "./router/food";
@@ -22,6 +24,9 @@ app.get("/", (req, res) => {
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 const port = 8000;
 app.listen(port, () => {
   console.log(`Server Running on port ${port}`);
