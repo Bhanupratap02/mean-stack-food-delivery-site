@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="order-list" *ngIf="orders.length > 0">
+    <div class="order-item" *ngFor="let order of orders">
+      <p><i class="fas fa-receipt"></i> Order ID: {{ order.id }}</p>
+      <p><i class="fas fa-info-circle"></i> Status: {{ order.status }}</p>
+      <p>
+        <i class="fas fa-dollar-sign"></i> Total Price: {{ order.totalPrice }}
+      </p>
+      <p>
+        <i class="far fa-calendar-alt"></i> Date: {{ order.createdAt | date }}
+      </p>
+      <button routerLink="/track/{{ order.id }}" class="btn btn-primary">
+        <i class="fas fa-eye"></i> View Details
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="no-orders" *ngIf="orders.length === 0">
+  <p>No orders available.</p>
+</div>

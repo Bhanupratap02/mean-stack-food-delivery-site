@@ -1,0 +1,151 @@
+/* Food List Styles */
+.food-list {
+  list-style: none;
+  margin: 1rem 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(300px, 1fr)
+  ); /* Responsive grid */
+  gap: 20px;
+}
+
+/* Food Card Styles */
+.food-card {
+  background-color: #fff;
+  border: 1px solid #e1e1e1;
+  border-radius: 12px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  overflow: hidden; /* Clip overflowing elements */
+  position: relative; /* For pseudo-element animations */
+}
+
+.food-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Food Image Styles */
+.food-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Floating effect */
+  transition: transform 0.2s ease-in-out;
+}
+
+.food-card:hover .food-image {
+  transform: scale(1.1); /* Enlarge the image on hover */
+}
+
+/* Content Styles */
+.content {
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Place content above pseudo-elements for animations */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ); /* Semi-transparent white background */
+  transition: background-color 0.3s ease-in-out; /* Smooth background color transition */
+}
+
+/* Name Styles */
+.name {
+  font-size: 20px; /* Larger font size */
+  font-weight: bold;
+  color: #4a235a; 
+  margin-bottom: 10px; /* Add space between name and other details */
+}
+
+/* Favorite Styles */
+.favorite {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  color: #ff5a5f;
+  font-size: 24px;
+  margin-top: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+.favorite.not {
+  color: grey;
+}
+.food-card:hover .favorite {
+  transform: scale(1.2); /* Enlarge the heart icon on hover */
+}
+
+/* Ratings Styles */
+.ratings {
+  margin-top: 10px;
+  font-size: 16px; /* Larger font size */
+  color: #ffbf00;
+  display: flex;
+  align-items: center;
+}
+
+.star {
+  font-size: 18px; /* Larger star size */
+  color: #ffbf00;
+  margin-right: 5px; /* Increased spacing between stars */
+}
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Origins Styles */
+.origins {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  /* Slightly darker text color */
+}
+.origins span {
+  border-radius: 2rem;
+  background-color: whitesmoke;
+  color: grey;
+  display: inline-block;
+  padding: 0 0.5rem;
+  margin-right: 0.4rem;
+  /* margin-top: 0.2rem; */
+}
+/* Cook Time Styles */
+.cook-time {
+  margin-top: 5px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #555; /* Slightly darker text color */
+}
+
+/* Price Styles */
+.price {
+  margin-top: 10px;
+  font-size: 24px; /* Larger font size for price */
+  font-weight: bold;
+  color: #00a896; /* Custom color for price */
+}
+
+/* Additional Animation for Card Details */
+.food-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent background */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 12px; /* Match the card's border-radius */
+  z-index: -1; /* Place behind the content */
+}
+
+.food-card:hover::before {
+  opacity: 1; /* Show the background on hover */
+}
