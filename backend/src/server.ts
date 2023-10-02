@@ -18,9 +18,9 @@ app.use(
     origin: ["http://localhost:4200"],
   })
 );
-app.get("/", (req, res) => {
-  res.send("Welcome To Foodmine API");
-});
+// app.get("/", (req, res) => {
+//   res.send("Welcome To Foodmine API");
+// });
 app.use("/api/foods", foodRouter);
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
