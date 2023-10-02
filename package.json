@@ -14,7 +14,7 @@
     },
     
 "devDependencies": {
-  "@angular/cli": "your_version_here",
+  "@angular/cli": "16.0.4"
 
 },
   "keywords": [],
