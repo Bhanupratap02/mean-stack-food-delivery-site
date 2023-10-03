@@ -1,5 +1,6 @@
 .container {
   margin-top: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -25,4 +26,16 @@
 .details strong {
   display: inline-block;
   width: 20%;
+}
+@media (max-width: 500px) {
+  .content h1 {
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .details {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
 }

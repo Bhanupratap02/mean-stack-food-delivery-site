@@ -131,3 +131,10 @@ button:hover {
     max-height: 300px;
   }
 }
+@media (max-width: 500px) {
+  .container > img {
+    display: flex;
+    justify-content: center;
+    min-width: 21rem;
+  }
+}
